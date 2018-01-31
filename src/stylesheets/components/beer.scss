@@ -1,0 +1,44 @@
+@import '../common.scss';
+
+.panel {
+  font-family: $roboto;
+  position: relative;
+  flex-grow: 1;
+  .name, .tagline {
+    position: absolute;
+  }
+  .name {
+    left: 5vh;
+    top: 50%;
+    margin-top: -2.5vh;
+    font-size: 5vh;
+    line-height: 5vh;
+    font-weight: 300;
+  }
+  .tagline {
+    top: 50%;
+    right: 5vh;
+    font-size: 2.5vh;
+    line-height: 2.5vh;
+    font-weight: 500;
+  }
+  @for $i from 1 through 4 {
+    &:nth-of-type(#{$i}) {
+      z-index: 10 - $i;
+      background:
+        radial-gradient(circle at top left,
+        nth($colors, $i+1), nth($colors, $i+1),
+        darken(nth($colors, $i+1), 8%));
+      filter: drop-shadow(0 0 1vh darken(nth($colors, $i+2), 20%));
+      h1, h2, h3 {
+        color: nth($colors, $i+2);
+      }
+      .price {
+        color: nth($colors, $i+2);
+      }
+      .tagline {
+        color: nth($colors, $i);
+      }
+    }
+  }
+}

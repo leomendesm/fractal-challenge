@@ -1,0 +1,15 @@
+.list{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(0);
+  height: 80vh;
+  width: (80vh / 1.5);
+  border-radius: 2vh;
+  overflow: hidden;
+  box-shadow:
+    4vh 7vh 14vh -6vh rgba(0,0,0,0.35),
+    -4vh 7vh 14vh -6vh rgba(0,0,0,0.35);
+}
