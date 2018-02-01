@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
 
-import cart from './cart'
+import beer from './beer'
 
-export default combineReducers({todos})
+export default combineReducers({beer})
