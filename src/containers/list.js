@@ -9,11 +9,13 @@ class List extends Component {
   }
   render() {
     if(this.props.beer.isFetching === false)
-      return ( 
-        <div className={styles.list}>
-        {this.props.beer.data.map(b =>
-          <Beer name={b.name} tagline={b.tagline} /> )
-        }
+      return (
+        <div className={styles.container}>
+          <div className={styles.list}>
+          {this.props.beer.data.map(b =>
+            <Beer name={b.name} tagline={b.tagline} /> )
+          }
+          </div>
         </div>
       )
     else

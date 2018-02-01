@@ -24,16 +24,11 @@
   }
   @for $i from 1 through 4 {
     &:nth-of-type(#{$i}) {
-      z-index: 10 - $i;
       background:
         radial-gradient(circle at top left,
         nth($colors, $i+1), nth($colors, $i+1),
         darken(nth($colors, $i+1), 8%));
-      // filter: drop-shadow(0 0 1vh darken(nth($colors, $i+2), 20%));
       h1 {
-        color: nth($colors, $i+2);
-      }
-      .price {
         color: nth($colors, $i+2);
       }
       .tagline {
