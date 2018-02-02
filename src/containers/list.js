@@ -12,9 +12,18 @@ class List extends Component {
       return (
         <div className={styles.container}>
           <div className={styles.list}>
-          {this.props.beer.data.map(b =>
-            <Beer name={b.name} tagline={b.tagline} /> )
-          }
+          {this.props.beer.data.map((b, i) =>
+            <Beer
+              key={i}
+              name={b.name}
+              image={b.image_url}
+              tagline={b.tagline}
+              description={b.description}
+              disabled={b.disabled}
+              showDescription={b.showDescription}
+              handlerClick={this.props.toggleBeerDescription(i)} 
+            /> 
+          )}
           </div>
         </div>
       )
