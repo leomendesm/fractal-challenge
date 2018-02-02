@@ -12,11 +12,11 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-      <div>
-        <List />
-      </div>
+        <div>
+          <List />
+        </div>
       </Provider>
-    );
+    )
   }
 }
 

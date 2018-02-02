@@ -4,7 +4,10 @@
   font-family: $roboto;
   position: relative;
   flex-grow: 1;
-  .name, .tagline {
+  .name,
+  .tagline,
+  .description,
+  img {
     position: absolute;
   }
   .name {
@@ -22,18 +25,70 @@
     line-height: 2.5vh;
     font-weight: 500;
   }
-  @for $i from 1 through 4 {
-    &:nth-of-type(#{$i}) {
-      background:
-        radial-gradient(circle at top left,
-        nth($colors, $i+1), nth($colors, $i+1),
-        darken(nth($colors, $i+1), 8%));
-      h1 {
-        color: nth($colors, $i+2);
-      }
-      .tagline {
-        color: nth($colors, $i);
-      }
+  .description{
+    display: none;
+  }
+  img{
+    display: none;
+  }
+  &:nth-of-type(odd) {
+    background:
+      radial-gradient(circle at top left,
+      nth($colors, 1), nth($colors, 1),
+      darken(nth($colors, 1), 8%));
+    .name,
+    .tagline,
+    .description {
+      color: nth($colors, 2);
     }
+  }
+    &:nth-of-type(even) {
+    background:
+      radial-gradient(circle at top left,
+      nth($colors,2), nth($colors, 2),
+      darken(nth($colors, 2), 8%));   
+    .name,
+    .tagline,
+    .description {
+      color: nth($colors, 1);
+    }
+  }
+}
+
+.hidden {
+  flex-grow: 0;
+  * {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.active {
+  .name {
+    left: 5vh;
+    margin-top: -5vh;
+    font-size: 7.5vh;
+    font-weight: 100;
+    line-height: 65px;
+  }
+  .description{
+    display: block;
+  }
+  .tagline {
+    margin-top: 10vh;
+    left: 5vh;
+  }
+  img{
+    height: 20vh;
+    display: block;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    top: 5vh;
+  }
+  .description{
+    bottom: 8vh;
+    left: 5vh;
+    right: 5vh;
   }
 }
