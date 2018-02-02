@@ -43,7 +43,16 @@ describe('Beer reducer', () => {
               tagline: 'a nice beer',
               description: 'a very nice beer',
               image: 'http://asd.asd',
-              showDescription: false
+              showDescription: false,
+              disabled: false
+            },
+            {
+              name: 'beer',
+              tagline: 'a nice beer',
+              description: 'a very nice beer',
+              image: 'http://asd.asd',
+              showDescription: false,
+              disabled: false
             }
           ]
         }
@@ -61,7 +70,16 @@ describe('Beer reducer', () => {
             tagline: 'a nice beer',
             description: 'a very nice beer',
             image: 'http://asd.asd',
-            showDescription: true
+            showDescription: true,
+            disabled: false
+          },
+          {
+            name: 'beer',
+            tagline: 'a nice beer',
+            description: 'a very nice beer',
+            image: 'http://asd.asd',
+            showDescription: false,
+            disabled: true
           }
         ]
       }
@@ -76,7 +94,16 @@ describe('Beer reducer', () => {
               tagline: 'a nice beer',
               description: 'a very nice beer',
               image: 'http://asd.asd',
-              showDescription: true
+              showDescription: true,
+              disabled: false
+            },
+            {
+              name: 'beer',
+              tagline: 'a nice beer',
+              description: 'a very nice beer',
+              image: 'http://asd.asd',
+              showDescription: false,
+              disabled: true
             }
           ]
         }
@@ -94,7 +121,16 @@ describe('Beer reducer', () => {
             tagline: 'a nice beer',
             description: 'a very nice beer',
             image: 'http://asd.asd',
-            showDescription: false
+            showDescription: false,
+            disabled: false
+          },
+          {
+            name: 'beer',
+            tagline: 'a nice beer',
+            description: 'a very nice beer',
+            image: 'http://asd.asd',
+            showDescription: false,
+            disabled: false
           }
         ]
       }
@@ -137,11 +173,44 @@ describe('Beer reducer', () => {
       )
       const action = deepFreeze({ 
         type: FETCH_BEER_LIST_SUCCESS,
-        payload: ['Teste']
-      })
+        payload: [
+            {
+              name: 'beer',
+              tagline: 'a nice beer',
+              description: 'a very nice beer',
+              image: 'http://asd.asd',
+              showDescription: false,
+              disabled: false
+            },
+            {
+              name: 'beer',
+              tagline: 'a nice beer',
+              description: 'a very nice beer',
+              image: 'http://asd.asd',
+              showDescription: false,
+              disabled: false
+            }
+          ]
+        }
+      )
       const after = {
         isFetching: false,
-        data: ['Teste'],
+        data: [{
+          name: 'beer',
+          tagline: 'a nice beer',
+          description: 'a very nice beer',
+          image: 'http://asd.asd',
+          showDescription: false,
+          disabled: false
+        },
+        {
+          name: 'beer',
+          tagline: 'a nice beer',
+          description: 'a very nice beer',
+          image: 'http://asd.asd',
+          showDescription: false,
+          disabled: false
+        }],
         hasError: false,
         errorMessage: null,
       }

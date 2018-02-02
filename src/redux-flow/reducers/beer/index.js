@@ -17,7 +17,7 @@ const beer = (state = initialState, action) => {
     case TOGGLE_BEER_DESCRIPTION: 
       const data = state.data.map((b, index) => {
         if(index === action.payload.index) return {...b, showDescription: !b.showDescription }
-        else return b
+        else return {...b, disabled: !b.disabled }
       })
       return {...state, data}
     case FETCH_BEER_LIST:
@@ -28,9 +28,10 @@ const beer = (state = initialState, action) => {
         errorMessage: null
       })
     case FETCH_BEER_LIST_SUCCESS:
+      const res = action.payload.map(beer => ({...beer, disabled: false, showDescription: false}))
       return Object.assign({}, state, {
         isFetching: false,
-        data: action.payload,
+        data: res,
         hasError: false,
         errorMessage: null
       })
