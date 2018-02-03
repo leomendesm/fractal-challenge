@@ -5,52 +5,61 @@
   position: relative;
   flex-grow: 1;
   .name,
-  .tagline,
-  .description,
-  img {
+  .tagline {
     position: absolute;
   }
   .name {
     left: 5vh;
     top: 50%;
-    margin-top: -2.5vh;
+    margin-top: -6.5vh;
     font-size: 5vh;
     line-height: 5vh;
     font-weight: 300;
   }
   .tagline {
-    top: 50%;
+    top: 60%;
     right: 5vh;
     font-size: 2.5vh;
     line-height: 2.5vh;
     font-weight: 500;
   }
-  .description{
-    display: none;
-  }
+  .description,
+  .button,
   img{
     display: none;
   }
-  &:nth-of-type(odd) {
-    background:
-      radial-gradient(circle at top left,
-      nth($colors, 1), nth($colors, 1),
-      darken(nth($colors, 1), 8%));
-    .name,
-    .tagline,
-    .description {
-      color: nth($colors, 2);
-    }
+
+  //set odd elements background yellow and children elements to black
+  background:
+    radial-gradient(circle at top left,
+    nth($colors, 1), nth($colors, 1),
+    darken(nth($colors, 1), 8%));
+  .name,
+  .tagline,
+  .description,
+  .button {
+    color: nth($colors, 2);
   }
-    &:nth-of-type(even) {
+  .button:hover{
+    color: nth($colors, 1);
+    background: nth($colors, 2);
+    transition-duration: 0.2s;
+  }
+  //set even elements background black and children elements to yellow  
+  &:nth-of-type(even) {
     background:
       radial-gradient(circle at top left,
       nth($colors,2), nth($colors, 2),
       darken(nth($colors, 2), 8%));   
     .name,
     .tagline,
-    .description {
+    .description,
+    .button {
       color: nth($colors, 1);
+    }
+    .button:hover{
+      color: nth($colors, 2);
+      background: nth($colors, 1);
     }
   }
 }
@@ -64,31 +73,33 @@
 }
 
 .active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 3vh;
+  text-align: center;
+  img,
+  .name,
+  .tagline,
+  .description,
+  .button {
+    position: static;
+    display: block;    
+  }
   .name {
-    left: 5vh;
-    margin-top: -5vh;
     font-size: 7.5vh;
     font-weight: 100;
     line-height: 65px;
   }
-  .description{
-    display: block;
-  }
-  .tagline {
-    margin-top: 10vh;
-    left: 5vh;
-  }
   img{
     height: 20vh;
-    display: block;
-    margin: 0 auto;
-    right: 0;
-    left: 0;
-    top: 5vh;
+    margin-bottom: 8vh;
   }
-  .description{
-    bottom: 8vh;
-    left: 5vh;
-    right: 5vh;
+  .button{
+    border: 1px solid;
+    border-radius: 1vh;
+    padding: 9px;
+    text-decoration: none;
   }
 }

@@ -12,6 +12,7 @@ const Beer = ({name, tagline, description, image, showDescription, disabled, han
     <h1 className={styles.name}>{name}</h1>
     <p className={styles.tagline}>{tagline}</p>
     <p className={styles.description}>{description}</p>
+    <a className={styles.button} href="#">Compre agora</a>
   </div>
 )}
 
