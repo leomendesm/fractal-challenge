@@ -1,4 +1,4 @@
-import { 
+import {
   TOGGLE_BEER_DESCRIPTION,
   FETCH_BEER_LIST,
   FETCH_BEER_LIST_SUCCESS,
@@ -9,15 +9,18 @@ export const initialState = {
   isFetching: null,
   data: [],
   hasError: false,
-  errorMessage: null,
+  errorMessage: null
 }
 
 const beer = (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE_BEER_DESCRIPTION: 
+    case TOGGLE_BEER_DESCRIPTION:
       const data = state.data.map((b, index) => {
-        if(index === action.payload.index) return {...b, showDescription: !b.showDescription }
-        else return {...b, disabled: !b.disabled }
+        if (index === action.payload.index) {
+          return { ...b, showDescription: !b.showDescription }
+        } else {
+          return { ...b, disabled: !b.disabled }
+        }
       })
       return {...state, data}
     case FETCH_BEER_LIST:
@@ -36,12 +39,12 @@ const beer = (state = initialState, action) => {
         errorMessage: null
       })
     case FETCH_BEER_LIST_FAIL:
-        return Object.assign({}, state, {
-          isFetching: false,
-          data: [],
-          hasError: true,
-          errorMessage: action.err
-        })
+      return Object.assign({}, state, {
+        isFetching: false,
+        data: [],
+        hasError: true,
+        errorMessage: action.err
+      })
     default: return state
   }
 }

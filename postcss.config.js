@@ -1,1 +1,1 @@
-module.exports = {plugins: [require('autoprefizer')]};
+module.exports = {plugins: [require('autoprefizer')]}

@@ -35,3 +35,6 @@ Executa todos os testes no modo "watch"(observa cada mudança) interativo para q
 
 ### `yarn test --coverage`
 Exibe uma tabela contendo a cobertura de testes pra todos os arquivos do projeto.
+
+### `yarn lint`
+Exibe erros vinculados ao padrão standard de código, como usos de ponto e vírgula(;) e espaçamento(2 espaços, sem espaços adicionais).

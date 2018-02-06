@@ -3,7 +3,7 @@ import { List } from './containers'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import reducers from './redux-flow/reducers'
-import { 
+import {
   createStore,
   applyMiddleware } from 'redux'
 import {
@@ -15,7 +15,7 @@ const store = createStore(
   applyMiddleware(thunk)
 )
 class App extends Component {
-  render() {
+  render () {
     return (
       <Provider store={store}>
         <Router>

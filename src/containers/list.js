@@ -4,31 +4,30 @@ import styles from '../stylesheets/containers/list.scss'
 import { connect } from 'react-redux'
 import { FetchBeerList, toggleBeerDescription } from '../redux-flow/reducers/beer/action-creators'
 class List extends Component {
-  componentWillMount(){
-    this.props.FetchBeerList();
+  componentWillMount () {
+    this.props.FetchBeerList()
   }
-  render() {
-    if(this.props.beer.isFetching === false)
+  render () {
+    if (this.props.beer.isFetching === false) {
       return (
         <div className={styles.container}>
           <div className={styles.list}>
-          {this.props.beer.data.map((b, i) =>
-            <Beer
-              key={i}
-              name={b.name}
-              image={b.image_url}
-              tagline={b.tagline}
-              description={b.description}
-              disabled={b.disabled}
-              showDescription={b.showDescription}
-              handlerClick={this.props.toggleBeerDescription(i)} 
-            /> 
+            {this.props.beer.data.map((b, i) =>
+              <Beer
+                key={i}
+                name={b.name}
+                image={b.image_url}
+                tagline={b.tagline}
+                description={b.description}
+                disabled={b.disabled}
+                showDescription={b.showDescription}
+                handlerClick={this.props.toggleBeerDescription(i)}
+            />
           )}
           </div>
         </div>
       )
-    else
-      return (<div>Buscando dados</div>) 
+    } else { return (<div>Buscando dados</div>) }
   }
 }
 

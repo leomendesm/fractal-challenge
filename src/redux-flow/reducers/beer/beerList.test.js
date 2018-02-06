@@ -1,17 +1,15 @@
 import beer, { initialState } from './index'
 
-import { 
+import {
   TOGGLE_BEER_DESCRIPTION,
   FETCH_BEER_LIST,
   FETCH_BEER_LIST_SUCCESS,
   FETCH_BEER_LIST_FAIL
 } from './actions'
 
-
 import deepFreeze from 'deep-freeze'
 
 describe('Beer reducer', () => {
-
   describe('Smoke Test', () => {
     it('should beer be a function', () => {
       expect(typeof beer).toBe('function')
@@ -57,7 +55,7 @@ describe('Beer reducer', () => {
           ]
         }
       )
-      const action = deepFreeze({ 
+      const action = deepFreeze({
         type: TOGGLE_BEER_DESCRIPTION,
         payload: {
           index: 0
@@ -108,7 +106,7 @@ describe('Beer reducer', () => {
           ]
         }
       )
-      const action = deepFreeze({ 
+      const action = deepFreeze({
         type: TOGGLE_BEER_DESCRIPTION,
         payload: {
           index: 0
@@ -145,53 +143,53 @@ describe('Beer reducer', () => {
           isFetching: null,
           data: [],
           hasError: false,
-          errorMessage: null,
+          errorMessage: null
         }
       )
-      const action = deepFreeze({ 
+      const action = deepFreeze({
         type: FETCH_BEER_LIST
       })
       const after = {
         isFetching: true,
         data: [],
         hasError: false,
-        errorMessage: null,
+        errorMessage: null
       }
       expect(beer(before, action)).toEqual(after)
     })
   })
 
-  describe('Fetch beer list data responses', () => {  
+  describe('Fetch beer list data responses', () => {
     it('should set data equal to payload and isFetching false when action type is FETCH_BEER_LIST_SUCCESS', () => {
       const before = deepFreeze(
         {
           isFetching: null,
           data: [],
           hasError: false,
-          errorMessage: null,
+          errorMessage: null
         }
       )
-      const action = deepFreeze({ 
+      const action = deepFreeze({
         type: FETCH_BEER_LIST_SUCCESS,
         payload: [
-            {
-              name: 'beer',
-              tagline: 'a nice beer',
-              description: 'a very nice beer',
-              image: 'http://asd.asd',
-              showDescription: false,
-              disabled: false
-            },
-            {
-              name: 'beer',
-              tagline: 'a nice beer',
-              description: 'a very nice beer',
-              image: 'http://asd.asd',
-              showDescription: false,
-              disabled: false
-            }
-          ]
-        }
+          {
+            name: 'beer',
+            tagline: 'a nice beer',
+            description: 'a very nice beer',
+            image: 'http://asd.asd',
+            showDescription: false,
+            disabled: false
+          },
+          {
+            name: 'beer',
+            tagline: 'a nice beer',
+            description: 'a very nice beer',
+            image: 'http://asd.asd',
+            showDescription: false,
+            disabled: false
+          }
+        ]
+      }
       )
       const after = {
         isFetching: false,
@@ -212,7 +210,7 @@ describe('Beer reducer', () => {
           disabled: false
         }],
         hasError: false,
-        errorMessage: null,
+        errorMessage: null
       }
       expect(beer(before, action)).toEqual(after)
     })
@@ -222,10 +220,10 @@ describe('Beer reducer', () => {
           isFetching: null,
           data: [],
           hasError: false,
-          errorMessage: null,
+          errorMessage: null
         }
       )
-      const action = deepFreeze({ 
+      const action = deepFreeze({
         type: FETCH_BEER_LIST_FAIL,
         err: 'fail'
       })
@@ -233,10 +231,9 @@ describe('Beer reducer', () => {
         isFetching: false,
         data: [],
         hasError: true,
-        errorMessage: 'fail',
+        errorMessage: 'fail'
       }
       expect(beer(before, action)).toEqual(after)
     })
   })
-  
 })
