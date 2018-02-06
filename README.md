@@ -1,7 +1,7 @@
 # Beer Selector - Fractal Frontend Challenge
 
 ## Descrição
-Este repositório contém o projeto solicitado no teste para desenvolvedores Frontend da empresa Fractal Tecnologia.
+Este repositório contém o projeto solicitado no teste para desenvolvedores Frontend da empresa Fractal Tecnologia. O projeto pode ser acessado com o Link: https://fractal-challenge.surge.sh/
 
 ## Pré-requisitos
 Para rodar o projeto será necessário possuir:

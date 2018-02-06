@@ -19,8 +19,10 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <Route path={'/'} component={List} />
-          <Route exact path={'/buy'} component={List} />
+          <div>
+            <Route path={'/'} component={List} />
+            <Route exact path={'/buy'} component={List} />
+          </div>
         </Router>
       </Provider>
     )
