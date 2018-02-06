@@ -38,3 +38,12 @@ Exibe uma tabela contendo a cobertura de testes pra todos os arquivos do projeto
 
 ### `yarn lint`
 Exibe erros vinculados ao padrão standard de código, como usos de ponto e vírgula(;) e espaçamento(2 espaços, sem espaços adicionais).
+
+## Observações
+- Testes e Code Coverage utilizam a biblioteca Jest (padrão do create-react-app)
+- Code Coverage está acima de 70%, apenas faltando testes em alguns IFs específicos de alguns componentes
+- As rotas utilizam a lib React Router
+- O estado da aplicação é mantido utilizando a lib Redux
+- As requisições HTTP/HTTPS utilizam a lib Axios
+- O CSS é escrito em SASS e compilado automaticamente pelo webpack e mantido pelo POST CSS
+- O deploy é feito com a ferramenta Surge, sendo ele automatizado a cada push para o Github por meio do Travis CI
